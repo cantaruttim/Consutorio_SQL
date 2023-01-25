@@ -172,5 +172,10 @@ INSERT INTO PACIENTE VALUES (20, 'Lilian da Conceição', 'F', '87536951', 'Rua 
 
 
 
+-- Retorna a quantidade de pacientes atendidos por sexo
+SELECT  SEXO, COUNT(*) AS "Quantidade"
+FROM PACIENTE
+	GROUP BY SEXO
+	ORDER BY 1;
 
 
