@@ -180,3 +180,43 @@ FROM PACIENTE
 
 SELECT IDPACIENTE, NOME_PACIENTE, SEXO
 FROM PACIENTE;
+
+
+
+DESC PACIENTE;
+
+/*
+DESC bkp_paciente;
++-------------------+---------------+------+-----+---------+----------------+
+| Field             | Type          | Null | Key | Default | Extra          |
++-------------------+---------------+------+-----+---------+----------------+
+| IDBKUP            | int           | NO   | PRI | NULL    | auto_increment |
+| IDCONSULTA        | int           | YES  |     | NULL    |                |
+| IDPACIENTE        | int           | YES  |     | NULL    |                |
+| NOME_PACIENTE     | varchar(50)   | YES  |     | NULL    |                |
+| SEXO              | enum('M','F') | YES  |     | NULL    |                |
+| TELEFONE_PACIENTE | varchar(10)   | YES  |     | NULL    |                |
+| ENDERECO_PACIENTE | varchar(100)  | YES  |     | NULL    |                |
++-------------------+---------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+*/
+
+-- CONECTANDO OS DOIS BANCOS CONSULTORIO -> BKP_CONSULTORIO
+
+DELIMITER $
+
+CREATE TRIGGER BKP_CONSULTORIO 
+BEFORE DELETE ON  CONSULTORIO
+	FOR EACH ROW
+BEGIN 
+
+	INSERT INTO BKP_CONSULTORIO VALUES
+	(NULL,OLD.IDUSUARIO, OLD.NOME,OLD.LOGIN);
+
+END
+$
+
+DELIMITER ;
+
+
+
