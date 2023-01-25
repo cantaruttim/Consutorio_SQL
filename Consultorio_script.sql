@@ -225,17 +225,17 @@ INSERT INTO BKP_CONSULTORIO.BKP_PACIENTE VALUES (NULL, 1000, 'TESTE', 'M', '1234
 
 
 DELIMITER $
-CREATE TRIGGER BKP_CONSULTORIO_PACIENTE
+CREATE TRIGGER BKP_CONSULTORIO
 BEFORE INSERT ON PACIENTE
 FOR EACH ROW
 BEGIN 
 
-INSERT INTO BKP_CONSULTORIO.BKP_PACIENTE VALUES (NULL, 
-												1000, 
-												'TESTE', 
-                                                'M', 
-                                                '12345678', 
-                                                'Rua João Luis Durval, SP'
+	INSERT INTO BKP_CONSULTORIO.BKP_PACIENTE VALUES (NULL, 
+													NEW.IDPACIENTE, 
+													NEW.NOME_PACIENTE, 
+													NEW.SEXO, 
+													NEW.TELEFONE_PACIENTE, 
+													NEW.ENDERECO_PACIENTE
                                                 );
 
 END
