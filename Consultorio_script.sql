@@ -141,10 +141,15 @@ SELECT IDMEDICO AS "Matrícula",
        ESPECIALIDADE AS "ESPECIALIDADE MÉDICA"
 FROM MEDICO;
 
-
 -- Retorna no momento 8 médicos e 7 médicas
 SELECT SEXO, COUNT(*) AS "Quantidade"
 FROM MEDICO
 GROUP BY 1;
+
+-- Retorna a quantidade de médico por sua especialidade
+SELECT ESPECIALIDADE, COUNT(*) AS "Quantidade"
+FROM MEDICO
+GROUP BY 1;
+
 
 
