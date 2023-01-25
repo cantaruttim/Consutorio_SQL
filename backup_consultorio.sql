@@ -38,3 +38,4 @@ CREATE TABLE BKP_PACIENTE(
 
 select * from BKP_PACIENTE;
 
+
