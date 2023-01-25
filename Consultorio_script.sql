@@ -251,8 +251,10 @@ BEGIN
 END
 ~
 
+-- Testando a trigger
 
+SELECT idpaciente, nome_paciente AS "Nome do Paciente", TELEFONE_PACIENTE AS "Telefone" FROM paciente;
 
-
+DELETE TABLE paciente;
 
 
