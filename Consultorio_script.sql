@@ -191,7 +191,6 @@ DESC bkp_paciente;
 | Field             | Type          | Null | Key | Default | Extra          |
 +-------------------+---------------+------+-----+---------+----------------+
 | IDBKUP            | int           | NO   | PRI | NULL    | auto_increment |
-| IDCONSULTA        | int           | YES  |     | NULL    |                |
 | IDPACIENTE        | int           | YES  |     | NULL    |                |
 | NOME_PACIENTE     | varchar(50)   | YES  |     | NULL    |                |
 | SEXO              | enum('M','F') | YES  |     | NULL    |                |
@@ -206,36 +205,41 @@ DESC bkp_paciente;
 -- 1) Vamos adicionar um paciente do banco cosultorio na tabela BKP_PACIENTE do banco BKP_CONSULTORIO
 USE consultorio;
 
--- Consigo trazer as colunas da tabela BKP_PACIENTE, do Banco BKP_CONSULTORIO.
+-- Podemos ver as colunas/registros da tabela BKP_PACIENTE, do Banco BKP_CONSULTORIO.
 SELECT * FROM BKP_CONSULTORIO.BKP_PACIENTE ;
 -- Vamos adicionar um valor nesse banco
-INSERT INTO BKP_CONSULTORIO.BKP_PACIENTE  VALUES ( NULL, OLD.IDCONSULTA, OLD.IDPACIENTE, OLD.PACIENTE, 
-													OLD.SEXO, OLD.TELEFONE, OLD.ENDERECO );
 
+-- Testando a conexão entre os dois bancos
+-- Observamos que os dois bancos estão conectados. E já é possível adicionarmos valores no banco BKP_CONSULTORIO
+-- 		mesmo estando no banco CONSULTORIO.
+INSERT INTO BKP_CONSULTORIO.BKP_PACIENTE VALUES (NULL, 1000, 'TESTE', 'M', '12345678', 'Rua João Luis Durval, SP');
+/*
++--------+------------+---------------+------+-------------------+--------------------------+
+| IDBKUP | IDPACIENTE | NOME_PACIENTE | SEXO | TELEFONE_PACIENTE | ENDERECO_PACIENTE        |
++--------+------------+---------------+------+-------------------+--------------------------+
+|      1 |       1000 | TESTE         | M    | 12345678          | Rua João Luis Durval, SP |
++--------+------------+---------------+------+-------------------+--------------------------+
+1 row in set (0.00 sec)
+*/
 
 
 
 DELIMITER $
-
 CREATE TRIGGER BKP_CONSULTORIO_PACIENTE
-BEFORE DELETE ON  PACIENTE
-	FOR EACH ROW
+BEFORE INSERT ON PACIENTE
+FOR EACH ROW
 BEGIN 
 
-	INSERT INTO BKP_PACIENTE VALUES
-	(
-		   NULL, 
-		   OLD.IDCONSULTA, 
-		   OLD.IDPACIENTE, 
-		   OLD.PACIENTE, 
-		   OLD.SEXO, 
-		   OLD.TELEFONE, 
-		   OLD.ENDERECO
-	);
+INSERT INTO BKP_CONSULTORIO.BKP_PACIENTE VALUES (NULL, 
+												1000, 
+												'TESTE', 
+                                                'M', 
+                                                '12345678', 
+                                                'Rua João Luis Durval, SP'
+                                                );
 
 END
 $
-
 DELIMITER ;
 
 
