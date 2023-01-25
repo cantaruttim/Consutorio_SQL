@@ -54,8 +54,6 @@ DESC PACIENTE;
 DESC CONSULTA;
 
 /*
-
-
 **** Observe como as tabelas ficaram após realizarmos as alterações das tabelas assim como
 adicionamos as colunas idmedico, idpaciente, idconsulta como as primeiras consultas de cada tabela assim como
 alteramos o tipo dela para INT e colocamos elas como PRIMARY KEY
@@ -108,7 +106,6 @@ DESC CONSULTA;
 | INMEDICO   | int  | YES  |     | NULL    |       |
 +------------+------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
-
 */
 
 
