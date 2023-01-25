@@ -172,6 +172,8 @@ INSERT INTO PACIENTE VALUES (NULL, 'Sérgio Moura de Morais', 'M', '85859954', '
 INSERT INTO PACIENTE VALUES (NULL, 'João Victor dos Santos', 'M', '32546598', 'Av Hermano Marchetti, Água Branca, SP');
 INSERT INTO PACIENTE VALUES (NULL, 'Flávia dos Santos', 'F', '78455321', 'Rua Moxei, Água Branca, SP');
 INSERT INTO PACIENTE VALUES (NULL, 'Lilian da Conceição', 'F', '87536951', 'Rua Carlos Belmiro Correia, Imirim, SP');
+INSERT INTO PACIENTE VALUES (NULL, 'Pedro Gonzala', 'M', '88524695', 'Rua Carlos Belmiro Correia, Imirim, SP');
+
 
 
 
@@ -238,4 +240,19 @@ BEGIN
 
 END
 ~
+
+-- Confirmando o back_up da tabela Paciente
+DELIMITER ~
+
+CREATE TRIGGER bkp_paciente
+BEFORE DELETE ON paciente FOR EACH ROW
+BEGIN 
+	INSERT INTO BKP_CONSULTORIO.BKP_PACIENTE VALUES(NULL, OLD.IDPACIENTE, OLD.NOME_PACIENTE, OLD.SEXO, OLD.TELEFONE_PACIENTE, OLD.ENDERECO_PACIENTE);
+END
+~
+
+
+
+
+
 
