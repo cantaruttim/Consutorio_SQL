@@ -168,8 +168,7 @@ INSERT INTO PACIENTE VALUES (16, 'Gabriella da Silva Marcondes', 'F', '85754242'
 INSERT INTO PACIENTE VALUES (17, 'Sérgio Moura de Morais', 'M', '85859954', 'Rua Arizona, Brookling, SP');
 INSERT INTO PACIENTE VALUES (18, 'João Victor dos Santos', 'M', '32546598', 'Av Hermano Marchetti, Água Branca, SP');
 INSERT INTO PACIENTE VALUES (19, 'Flávia dos Santos', 'F', '78455321', 'Rua Moxei, Água Branca, SP');
-
-INSERT INTO PACIENTE VALUES (20, 'Carlos Cabral dos Santos', 'M', '12546325', 'Rua alencar das Pitais, São Paulo, SP');
+INSERT INTO PACIENTE VALUES (20, 'Lilian da Conceição', 'F', '87536951', 'Rua Carlos Belmiro Correia, Imirim, SP');
 
 
 
