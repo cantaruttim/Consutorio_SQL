@@ -154,3 +154,24 @@ ORDER BY 1 DESC;
 
 
 
+DESC PACIENTE;
+
+-- Inseringo valores na tabela de Pacientes
+
+INSERT INTO PACIENTE VALUES (10, 'Carlos Cabral dos Santos', 'M', '12546325', 'Rua alencar das Pitais, São Paulo, SP');
+INSERT INTO PACIENTE VALUES (11, 'Brunna Braga de Almeeida Wightein', 'F', '32048754', 'Rua Pedro de Toledo 1850, São Paulo, SP');
+INSERT INTO PACIENTE VALUES (12, 'Victor dos Santos Barbosa', 'M', '25874563', 'Av Antônio Piranga, Diadema, SP');
+INSERT INTO PACIENTE VALUES (13, ' Wellington Roberto Rodrigo Guilherme', 'M', '85249632', 'Rua Ângelo Dusi, São Bernardo do Campo, SP');
+INSERT INTO PACIENTE VALUES (14, 'Carlos Cabral dos Santos', 'M', '12546325', 'Rua alencar das Pitais, SSão Bernardo do Campo, SP');
+INSERT INTO PACIENTE VALUES (15, 'Luiza Vitória da Silva', 'F', '47854578', 'Rua Atílio Locatelli, São Paulo, SP');
+
+INSERT INTO PACIENTE VALUES (16, 'Carlos Cabral dos Santos', 'M', '12546325', 'Rua alencar das Pitais, São Paulo, SP');
+INSERT INTO PACIENTE VALUES (17, 'Carlos Cabral dos Santos', 'M', '12546325', 'Rua alencar das Pitais, São Paulo, SP');
+INSERT INTO PACIENTE VALUES (18, 'Carlos Cabral dos Santos', 'M', '12546325', 'Rua alencar das Pitais, São Paulo, SP');
+INSERT INTO PACIENTE VALUES (19, 'Carlos Cabral dos Santos', 'M', '12546325', 'Rua alencar das Pitais, São Paulo, SP');
+INSERT INTO PACIENTE VALUES (20, 'Carlos Cabral dos Santos', 'M', '12546325', 'Rua alencar das Pitais, São Paulo, SP');
+
+
+
+
+
