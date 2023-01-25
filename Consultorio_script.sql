@@ -5,6 +5,7 @@ USE CONSULTORIO;
 -- Criando as tabelas
 DROP TABLE IF EXISTS MEDICO;
 CREATE TABLE MEDICO(
+	IDMEDICO INT PRIMARY KEY AUTO_INCREMENT,
     MEDICO VARCHAR(30) NOT NULL,
     SEXO CHAR(1),
     CRM VARCHAR(6) UNIQUE NOT NULL,
@@ -15,6 +16,7 @@ CREATE TABLE MEDICO(
 
 DROP TABLE IF EXISTS PACIENTE;
 CREATE TABLE PACIENTE(
+	IDPACIENTE INT PRIMARY KEY AUTO_INCREMENT,
     NOME_PACIENTE VARCHAR(50) NOT NULL,
     SEXO ENUM('M','F') NOT NULL,
     TELEFONE_PACIENTE VARCHAR(10) NOT NULL,
@@ -36,7 +38,7 @@ DROP TABLE CONSULTA;
 
 SHOW TABLES;
 
-
+/*
 -- ALTER TABLES
 -- ADDING PK
 
@@ -49,6 +51,7 @@ ALTER TABLE PACIENTE ADD PRIMARY KEY(IDPACIENTE);
 ALTER TABLE CONSULTA ADD COLUMN IDCONSULTA  INT NOT NULL  FIRST;
 ALTER TABLE CONSULTA ADD PRIMARY KEY(IDCONSULTA);
 
+*/
 
 DESC MEDICO;
 DESC PACIENTE;
@@ -116,21 +119,21 @@ DESC CONSULTA;
 DESC MEDICO;
 -- Todos os valores de Nome,CRM e telefones são ficticios
 
-INSERT INTO MEDICO VALUES(1, 'Bruno Fraga', 'M', '784452', 'Endo', NULL);
-INSERT INTO MEDICO VALUES(2, 'Giovanna Lacerda', 'F', '158652', 'Psi', '99586254');
-INSERT INTO MEDICO VALUES(3, 'Goberto Arruda', 'M', '123548', 'Geral', '32546598');
-INSERT INTO MEDICO VALUES(4, 'Fernanda Gallo', 'F', '258654', 'Geral', NULL);
-INSERT INTO MEDICO VALUES(5, 'Bruna Mafra', 'F', '32546', 'Onco', '58426532');
-INSERT INTO MEDICO VALUES(6, 'Bruno Fraga', 'M', '784552', 'Endo', '75854582');
-INSERT INTO MEDICO VALUES(7, 'Felipe Vascos', 'M', '256357', 'Imuno', '78549652');
-INSERT INTO MEDICO VALUES(8, 'Bruna Vieira', 'F', '12548', 'Neuro', '25874563');
-INSERT INTO MEDICO VALUES(9, 'Matheus Alves', 'M', '12586', 'Neuro', NULL);
-INSERT INTO MEDICO VALUES(10, 'Felipe Gonçlves', 'M', '258365', 'Neuro', NULL);
-INSERT INTO MEDICO VALUES(11, 'Gabriella Ferreira Alves', 'F', '125484', 'Orto', '75854582');
-INSERT INTO MEDICO VALUES(12, 'Renam Gonçalves', 'M', '225487', 'Orto', '75854582');
-INSERT INTO MEDICO VALUES(13, 'Lucas Santos', 'M', '225484', 'Orto', NULL);
-INSERT INTO MEDICO VALUES(14, 'Letícia Ferraz', 'F', '234555', 'Psi', '75854582');
-INSERT INTO MEDICO VALUES(15, 'Vitória Alves', 'F', '125486', 'Geral', NULL);
+INSERT INTO MEDICO VALUES(NULL, 'Bruno Fraga', 'M', '784452', 'Endo', NULL);
+INSERT INTO MEDICO VALUES(NULL, 'Giovanna Lacerda', 'F', '158652', 'Psi', '99586254');
+INSERT INTO MEDICO VALUES(NULL, 'Goberto Arruda', 'M', '123548', 'Geral', '32546598');
+INSERT INTO MEDICO VALUES(NULL, 'Fernanda Gallo', 'F', '258654', 'Geral', NULL);
+INSERT INTO MEDICO VALUES(NULL, 'Bruna Mafra', 'F', '32546', 'Onco', '58426532');
+INSERT INTO MEDICO VALUES(NULL, 'Bruno Fraga', 'M', '784552', 'Endo', '75854582');
+INSERT INTO MEDICO VALUES(NULL, 'Felipe Vascos', 'M', '256357', 'Imuno', '78549652');
+INSERT INTO MEDICO VALUES(NULL, 'Bruna Vieira', 'F', '12548', 'Neuro', '25874563');
+INSERT INTO MEDICO VALUES(NULL, 'Matheus Alves', 'M', '12586', 'Neuro', NULL);
+INSERT INTO MEDICO VALUES(NULL, 'Felipe Gonçlves', 'M', '258365', 'Neuro', NULL);
+INSERT INTO MEDICO VALUES(NULL, 'Gabriella Ferreira Alves', 'F', '125484', 'Orto', '75854582');
+INSERT INTO MEDICO VALUES(NULL, 'Renam Gonçalves', 'M', '225487', 'Orto', '75854582');
+INSERT INTO MEDICO VALUES(NULL, 'Lucas Santos', 'M', '225484', 'Orto', NULL);
+INSERT INTO MEDICO VALUES(NULL, 'Letícia Ferraz', 'F', '234555', 'Psi', '75854582');
+INSERT INTO MEDICO VALUES(NULL, 'Vitória Alves', 'F', '125486', 'Geral', NULL);
 
 -- SELECTS : MEDICO 
 
@@ -158,17 +161,17 @@ DESC PACIENTE;
 
 -- Inseringo valores na tabela de Pacientes
 
-INSERT INTO PACIENTE VALUES (10, 'Carlos Cabral dos Santos', 'M', '12546325', 'Rua alencar das Pitais, São Paulo, SP');
-INSERT INTO PACIENTE VALUES (11, 'Brunna Braga de Almeeida Wightein', 'F', '32048754', 'Rua Pedro de Toledo 1850, São Paulo, SP');
-INSERT INTO PACIENTE VALUES (12, 'Victor dos Santos Barbosa', 'M', '25874563', 'Av Antônio Piranga, Diadema, SP');
-INSERT INTO PACIENTE VALUES (13, ' Wellington Roberto Rodrigo Guilherme', 'M', '85249632', 'Rua Ângelo Dusi, São Bernardo do Campo, SP');
-INSERT INTO PACIENTE VALUES (14, 'Carlos Cabral dos Santos', 'M', '12546325', 'Rua alencar das Pitais, SSão Bernardo do Campo, SP');
-INSERT INTO PACIENTE VALUES (15, 'Luiza Vitória da Silva', 'F', '47854578', 'Rua Atílio Locatelli, São Paulo, SP');
-INSERT INTO PACIENTE VALUES (16, 'Gabriella da Silva Marcondes', 'F', '85754242', 'Rua Michigan, Brookling, SP');
-INSERT INTO PACIENTE VALUES (17, 'Sérgio Moura de Morais', 'M', '85859954', 'Rua Arizona, Brookling, SP');
-INSERT INTO PACIENTE VALUES (18, 'João Victor dos Santos', 'M', '32546598', 'Av Hermano Marchetti, Água Branca, SP');
-INSERT INTO PACIENTE VALUES (19, 'Flávia dos Santos', 'F', '78455321', 'Rua Moxei, Água Branca, SP');
-INSERT INTO PACIENTE VALUES (20, 'Lilian da Conceição', 'F', '87536951', 'Rua Carlos Belmiro Correia, Imirim, SP');
+INSERT INTO PACIENTE VALUES (NULL, 'Carlos Cabral dos Santos', 'M', '12546325', 'Rua alencar das Pitais, São Paulo, SP');
+INSERT INTO PACIENTE VALUES (NULL, 'Brunna Braga de Almeeida Wightein', 'F', '32048754', 'Rua Pedro de Toledo 1850, São Paulo, SP');
+INSERT INTO PACIENTE VALUES (NULL, 'Victor dos Santos Barbosa', 'M', '25874563', 'Av Antônio Piranga, Diadema, SP');
+INSERT INTO PACIENTE VALUES (NULL, ' Wellington Roberto Rodrigo Guilherme', 'M', '85249632', 'Rua Ângelo Dusi, São Bernardo do Campo, SP');
+INSERT INTO PACIENTE VALUES (NULL, 'Carlos Cabral dos Santos', 'M', '12546325', 'Rua alencar das Pitais, SSão Bernardo do Campo, SP');
+INSERT INTO PACIENTE VALUES (NULL, 'Luiza Vitória da Silva', 'F', '47854578', 'Rua Atílio Locatelli, São Paulo, SP');
+INSERT INTO PACIENTE VALUES (NULL, 'Gabriella da Silva Marcondes', 'F', '85754242', 'Rua Michigan, Brookling, SP');
+INSERT INTO PACIENTE VALUES (NULL, 'Sérgio Moura de Morais', 'M', '85859954', 'Rua Arizona, Brookling, SP');
+INSERT INTO PACIENTE VALUES (NULL, 'João Victor dos Santos', 'M', '32546598', 'Av Hermano Marchetti, Água Branca, SP');
+INSERT INTO PACIENTE VALUES (NULL, 'Flávia dos Santos', 'F', '78455321', 'Rua Moxei, Água Branca, SP');
+INSERT INTO PACIENTE VALUES (NULL, 'Lilian da Conceição', 'F', '87536951', 'Rua Carlos Belmiro Correia, Imirim, SP');
 
 
 
@@ -222,25 +225,17 @@ INSERT INTO BKP_CONSULTORIO.BKP_PACIENTE VALUES (NULL, 1000, 'TESTE', 'M', '1234
 1 row in set (0.00 sec)
 */
 
+DESC paciente;
+DESC bkp_consultorio.bkp_paciente;
 
+DELIMITER ~
 
-DELIMITER $
-CREATE TRIGGER BKP_CONSULTORIO
-BEFORE INSERT ON PACIENTE
-FOR EACH ROW
-BEGIN 
+CREATE TRIGGER bkp_consult
+BEFORE INSERT ON paciente FOR EACH ROW
+BEGIN
 
-	INSERT INTO BKP_CONSULTORIO.BKP_PACIENTE VALUES (NULL, 
-													NEW.IDPACIENTE, 
-													NEW.NOME_PACIENTE, 
-													NEW.SEXO, 
-													NEW.TELEFONE_PACIENTE, 
-													NEW.ENDERECO_PACIENTE
-                                                );
+	INSERT INTO BKP_CONSULTORIO.BKP_PACIENTE VALUES(NULL, NEW.IDPACIENTE, NEW.NOME_PACIENTE, NEW.SEXO, NEW.TELEFONE_PACIENTE, NEW.ENDERECO_PACIENTE);
 
 END
-$
-DELIMITER ;
-
-
+~
 
