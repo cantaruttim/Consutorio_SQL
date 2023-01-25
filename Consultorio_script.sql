@@ -230,17 +230,6 @@ INSERT INTO BKP_CONSULTORIO.BKP_PACIENTE VALUES (NULL, 1000, 'TESTE', 'M', '1234
 DESC paciente;
 DESC bkp_consultorio.bkp_paciente;
 
-DELIMITER ~
-
-CREATE TRIGGER bkp_consult
-BEFORE INSERT ON paciente FOR EACH ROW
-BEGIN
-
-	INSERT INTO BKP_CONSULTORIO.BKP_PACIENTE VALUES(NULL, NEW.IDPACIENTE, NEW.NOME_PACIENTE, NEW.SEXO, NEW.TELEFONE_PACIENTE, NEW.ENDERECO_PACIENTE);
-
-END
-~
-
 -- Confirmando o back_up da tabela Paciente
 DELIMITER ~
 
@@ -255,6 +244,30 @@ END
 
 SELECT idpaciente, nome_paciente AS "Nome do Paciente", TELEFONE_PACIENTE AS "Telefone" FROM paciente;
 
-DELETE TABLE paciente;
+DELETE FROM paciente;
 
+SELECT * FROM BKP_CONSULTORIO.BKP_PACIENTE ;
+
+/*
++--------+------------+---------------------------------------+------+-------------------+----------------------------------------------------+
+| IDBKUP | IDPACIENTE | NOME_PACIENTE                         | SEXO | TELEFONE_PACIENTE | ENDERECO_PACIENTE                                  |
++--------+------------+---------------------------------------+------+-------------------+----------------------------------------------------+
+|      1 |       1000 | TESTE                                 | M    | 12345678          | Rua João Luis Durval, SP                           |
+|      2 |       1000 | TESTE                                 | M    | 12345678          | Rua João Luis Durval, SP                           |
+|      3 |          1 | Carlos Cabral dos Santos              | M    | 12546325          | Rua alencar das Pitais, São Paulo, SP              |
+|      4 |          2 | Brunna Braga de Almeeida Wightein     | F    | 32048754          | Rua Pedro de Toledo 1850, São Paulo, SP            |
+|      5 |          3 | Victor dos Santos Barbosa             | M    | 25874563          | Av Antônio Piranga, Diadema, SP                    |
+|      6 |          4 |  Wellington Roberto Rodrigo Guilherme | M    | 85249632          | Rua Ângelo Dusi, São Bernardo do Campo, SP         |
+|      7 |          5 | Carlos Cabral dos Santos              | M    | 12546325          | Rua alencar das Pitais, SSão Bernardo do Campo, SP |
+|      8 |          6 | Luiza Vitória da Silva                | F    | 47854578          | Rua Atílio Locatelli, São Paulo, SP                |
+|      9 |          7 | Gabriella da Silva Marcondes          | F    | 85754242          | Rua Michigan, Brookling, SP                        |
+|     10 |          8 | Sérgio Moura de Morais                | M    | 85859954          | Rua Arizona, Brookling, SP                         |
+|     11 |          9 | João Victor dos Santos                | M    | 32546598          | Av Hermano Marchetti, Água Branca, SP              |
+|     12 |         10 | Flávia dos Santos                     | F    | 78455321          | Rua Moxei, Água Branca, SP                         |
+|     13 |         11 | Lilian da Conceição                   | F    | 87536951          | Rua Carlos Belmiro Correia, Imirim, SP             |
+|     14 |         12 | Pedro Gonzala                         | M    | 88524695          | Rua Carlos Belmiro Correia, Imirim, SP             |
++--------+------------+---------------------------------------+------+-------------------+----------------------------------------------------+
+14 rows in set (0.00 sec)
+
+*/
 
