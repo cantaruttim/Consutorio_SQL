@@ -146,10 +146,11 @@ SELECT SEXO, COUNT(*) AS "Quantidade"
 FROM MEDICO
 GROUP BY 1;
 
--- Retorna a quantidade de médico por sua especialidade
+-- Retorna a quantidade de médico por sua especialidade em ordem decrescente
 SELECT ESPECIALIDADE, COUNT(*) AS "Quantidade"
 FROM MEDICO
-GROUP BY 1;
+GROUP BY 1
+ORDER BY 1 DESC;
 
 
 
